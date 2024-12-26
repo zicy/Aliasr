@@ -98,8 +98,13 @@ public class AliasrPlugin {
 
                 @Override
                 public void execute(Invocation invocation) {
-                    String joinedArgs = String.join(" ", args);
+                    String joinedArgs = String.join(" ", invocation.arguments());
 
+                    // Debug lines
+                    // logger.info("command: " + command + " " + (args.length() > 0 ? (" " + joinedArgs.replaceAll(this.args, this.commandArgs)) : ""));
+                    // logger.info("joinedArgs: " + joinedArgs);
+                    // logger.info("regex: " + (args.length() > 0 ? (" " + joinedArgs.replaceAll(this.args, this.commandArgs)) : ""));
+                        
                     AliasrPlugin.getInstance().commandManager.executeAsync(
                         invocation.source(),
                         this.command
